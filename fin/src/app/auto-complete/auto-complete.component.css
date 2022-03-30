@@ -1,0 +1,13 @@
+.list {
+    display: block;
+    width: 200px;
+}
+
+.list-item {
+    display: block;
+    width: 100%;
+}
+
+.is-hoverable {
+    cursor: pointer;
+}

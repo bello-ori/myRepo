@@ -1,0 +1,25 @@
+<div class="wrapper">
+
+  <div class="control">
+    <input type="text" #searchInput class="form-control" placeholder="Type any movie name" />
+    <div *ngIf="isSearching">
+        <h4>Searching ... </h4>
+    </div>
+    <div class="list is-hoverable">
+      <ng-container *ngIf="apiResponse['Response'] == 'False'; else elseTemplate">
+          <div class="alert alert-danger" role="alert">
+            {{apiResponse['Error']}}
+          </div>
+      </ng-container>
+
+      <ng-template #elseTemplate>
+        <div *ngFor="let m of apiResponse['Search']">
+          <div style="margin:5px;">
+              <h5 (click)="onClickEvent($event)">{{m['Title']}}</h5>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+
+</div>
